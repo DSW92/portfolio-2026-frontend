@@ -1,48 +1,24 @@
-'use client';
-
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
-export default function Navigation() {
-    const pathname = usePathname();
+async function getMenu() {
+    const res = await fetch(
+        'http://localhost:8888/portfolio-2026-cms/wp-json/custom/v1/menu',
+        { cache: 'no-store' }
+    );
 
-    const links = [
-        {
-            href: '/',
-            label: 'Start',
-        },
-        {
-            href: '/about',
-            label: 'O mnie',
-        },
-        {
-            href: '/projects',
-            label: 'Projekty',
-        },
-        {
-            href: '/blog',
-            label: 'Blog',
-        },
-        {
-            href: '/contact',
-            label: 'Kontakt',
-        },
-    ];
+    return res.json();
+}
+
+export default async function Navigation() {
+    const menu = await getMenu();
 
     return (
         <nav>
-            <ul>
-                {links.map((link) => (
-                    <li key={link.href}>
-                        <Link
-                            href={link.href}
-                            className={
-                                pathname === link.href
-                                    ? 'active'
-                                    : ''
-                            }
-                        >
-                            {link.label}
+            <ul style={{ display: 'flex', gap: '20px' }}>
+                {menu.map((item) => (
+                    <li key={item.url}>
+                        <Link href={item.url}>
+                            {item.title}
                         </Link>
                     </li>
                 ))}
