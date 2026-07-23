@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from './Navigation.module.scss';
 
 async function getMenu() {
     const res = await fetch(
@@ -12,8 +13,13 @@ async function getMenu() {
 export default async function Navigation() {
     const menu = await getMenu();
 
-    return (
-        <nav>
+    console.log(menu[0].url);
+
+    return (       
+        <nav className={styles.nav}>
+            <div className="site-logo">
+                <a href={menu[0].url}>DSW</a>
+            </div>
             <ul style={{ display: 'flex', gap: '20px' }}>
                 {menu.map((item) => (
                     <li key={item.url}>
