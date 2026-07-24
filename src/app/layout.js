@@ -1,5 +1,12 @@
+import { Commissioner } from 'next/font/google';
 import './globals.scss';
 import Header from '@/components/Header/Header';
+
+const commissioner = Commissioner({
+    subsets: ['latin', 'latin-ext'],
+    display: 'swap',
+    variable: '--font-commissioner',
+});
 
 export const metadata = {
     title: 'Portfolio',
@@ -10,7 +17,7 @@ export default function RootLayout({
     children,
 }) {
     return (
-        <html lang="pl">
+        <html lang="pl" className={commissioner.variable}>
             <body>
                 <Header />
                 <main>

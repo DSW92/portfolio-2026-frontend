@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+@mixin Container {
+	width: 100%;
+	max-width: 991px;
+	padding: 0 15px;
+	margin: 0 auto;
+
+	@include DesktopXL {
+		max-width: 1200px;
+	}
+}
+
+@mixin ContainerFluid() {
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.container {
+	@include Container;
+}
+
+.container-fluid {
+	@include ContainerFluid;
+}

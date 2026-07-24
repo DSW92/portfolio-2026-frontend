@@ -1,0 +1,71 @@
+/** BREAKPOINTS MIXINS */
+
+/** WIDTH: 0–575px */
+@mixin MobileXS() {
+	@media (min-width: 0) and (max-width: 575px) {
+		@content;
+	}
+}
+
+/** WIDTH: 576–767px */
+@mixin MobileSM() {
+	@media (min-width: 576px) and (max-width: 767px) {
+		@content;
+	}
+}
+
+/** WIDTH: od 576px */
+@mixin Mobile() {
+	@media (min-width: 576px) {
+		@content;
+	}
+}
+
+/** WIDTH: 0–991px */
+@mixin MobileTablet() {
+	@media (min-width: 0) and (max-width: 991px) {
+		@content;
+	}
+}
+
+/** WIDTH: 768–991px */
+@mixin Tablet() {
+	@media (min-width: 768px) and (max-width: 991px) {
+		@content;
+	}
+}
+
+/** WIDTH: 768–1199px */
+@mixin TabletDesktopLG() {
+	@media (min-width: 768px) and (max-width: 1199px) {
+		@content;
+	}
+}
+
+/** WIDTH: od 768px */
+@mixin TabletDesktop() {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+/** WIDTH: 992–1199px */
+@mixin DesktopLG() {
+	@media (min-width: 992px) and (max-width: 1199px) {
+		@content;
+	}
+}
+
+/** WIDTH: od 1200px */
+@mixin DesktopXL() {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+
+/** WIDTH: od 992px */
+@mixin Desktop() {
+	@media (min-width: 992px) {
+		@content;
+	}
+}
