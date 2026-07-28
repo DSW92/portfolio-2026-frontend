@@ -27,8 +27,6 @@ export default async function Page({ params }) {
 
     return (
         <>
-            <h1>{page.title.rendered}</h1>
-
             <div
                 dangerouslySetInnerHTML={{
                     __html: page.content.rendered,
