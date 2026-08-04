@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import WordPressContent from '@/components/WordPressContent/WordPressContent';
 
 async function getPage(slug) {
     const res = await fetch(
@@ -27,11 +28,7 @@ export default async function Page({ params }) {
 
     return (
         <>
-            <div
-                dangerouslySetInnerHTML={{
-                    __html: page.content.rendered,
-                }}
-            />
+            <WordPressContent html={page.content.rendered} />
         </>
     );
 }

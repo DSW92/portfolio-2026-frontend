@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import WordPressContent from '@/components/WordPressContent/WordPressContent';
 
 async function getHomePage() {
     const res = await fetch(
@@ -24,11 +25,7 @@ export default async function HomePage() {
 
     return (
         <>
-            <div
-                dangerouslySetInnerHTML={{
-                    __html: page.content.rendered,
-                }}
-            />
+            <WordPressContent html={page.content.rendered} />
         </>
     );
 }
