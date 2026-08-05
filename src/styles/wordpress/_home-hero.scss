@@ -1,0 +1,62 @@
+@use '../variables' as *;
+@use '../grid' as *;
+
+.wp-block-bloki-autorskie-home-hero {
+
+    .container {
+
+        figure.wp-block-image {
+            // flex-basis: 350px;
+            width: 250px;
+            height: 250px;
+            border-radius: 100%;
+            overflow: hidden;
+
+            @include Mobile {
+                width: 350px;
+                height: 350px;
+            }
+
+            img {
+                box-sizing: border-box;
+                height: auto;
+                max-width: 100%;
+                vertical-align: bottom;
+            }
+        }
+
+        > .wp-block-group {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+
+            @include Desktop {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            > .wp-block-group {
+                max-width: 550px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                @include Desktop {
+                    display: initial;
+                }
+
+                h1,
+                p {
+                    text-align: center;
+
+                    @include Desktop {
+                        text-align: start;
+                    }
+                }
+            }
+        }
+    }
+}

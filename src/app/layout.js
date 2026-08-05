@@ -19,6 +19,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="pl" className={commissioner.variable}>
+            <head>
+                <link
+					rel="stylesheet"
+					href="http://localhost:8888/portfolio-2026-cms/wp-json/custom/v1/global-styles"
+				/>
+            </head>
             <body>
                 <Header />
                 <main>

@@ -1,0 +1,14 @@
+.wp-block-bloki-autorskie-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+
+    img {
+        display: block;
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+}
