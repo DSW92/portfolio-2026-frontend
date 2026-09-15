@@ -1,31 +1,28 @@
-import { notFound } from 'next/navigation';
-import WordPressContent from '@/components/WordPressContent/WordPressContent';
+import BlockRenderer from '@/components/BlockRenderer/BlockRenderer';
 
-async function getHomePage() {
+async function getPageBlocks() {
     const res = await fetch(
-        'http://localhost:8888/portfolio-2026-cms/wp-json/custom/v1/front-page',
+        'http://localhost:8888/portfolio-2026-cms/wp-json/bloki-autorskie/v1/page-blocks/7',
         {
-            // next: { revalidate: 60 },
+            cache: 'no-store',
         }
     );
 
     if (!res.ok) {
-        return null;
+        throw new Error(
+            'Nie udało się pobrać bloków strony głównej.'
+        );
     }
 
     return res.json();
 }
 
 export default async function HomePage() {
-    const page = await getHomePage();
-
-    if (!page) {
-        notFound();
-    }
+    const page = await getPageBlocks();
 
     return (
-        <>
-            <WordPressContent html={page.content.rendered} />
-        </>
+        <BlockRenderer
+            blocks={page.blocks}
+        />
     );
 }
