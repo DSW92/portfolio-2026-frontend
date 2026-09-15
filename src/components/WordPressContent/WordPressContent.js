@@ -6,8 +6,6 @@ export default function WordPressContent({ html }) {
 	const router = useRouter();
 
 	function handleClick(event) {
-        
-        console.log('klik przechwycony');
 
 		const link = event.target.closest('a');
 
@@ -50,8 +48,6 @@ export default function WordPressContent({ html }) {
 		}
 
 		event.preventDefault();
-
-        console.log('router.push:', url.pathname);
 
 		router.push(
 			`${url.pathname}${url.search}${url.hash}`
