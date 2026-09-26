@@ -19,6 +19,9 @@ export default function BlockRenderer({ blocks }) {
                         postsPerPage={
                             block.attrs?.postsPerPage ?? 6
                         }
+                        category={
+                            block.attrs?.category ?? 'all'
+                        }
                     />
                 );
 

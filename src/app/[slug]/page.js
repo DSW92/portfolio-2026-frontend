@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import WordPressContent from '@/components/WordPressContent/WordPressContent';
+import BlockRenderer from '@/components/BlockRenderer/BlockRenderer';
 
 async function getPage(slug) {
     const res = await fetch(
@@ -16,6 +16,21 @@ async function getPage(slug) {
     return data[0] || null;
 }
 
+async function getPageBlocks(pageId) {
+    const res = await fetch(
+        `http://localhost:8888/portfolio-2026-cms/wp-json/bloki-autorskie/v1/page-blocks/${pageId}`,
+        {
+            cache: 'no-store',
+        }
+    );
+
+    if (!res.ok) {
+        return null;
+    }
+
+    return res.json();
+}
+
 export default async function Page({ params }) {
     const { slug } = await params;
     // const resolvedParams = await params;
@@ -26,9 +41,9 @@ export default async function Page({ params }) {
         notFound();
     }
 
+    const pageBlocks = await getPageBlocks(page.id);
+
     return (
-        <>
-            <WordPressContent html={page.content.rendered} />
-        </>
+        <BlockRenderer blocks={pageBlocks.blocks} />
     );
 }
