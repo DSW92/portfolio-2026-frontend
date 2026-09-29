@@ -1,5 +1,6 @@
 import BlogPosts from '@/components/BlogPosts/BlogPosts';
 import WordPressContent from '@/components/WordPressContent/WordPressContent';
+import Portfolio from '@/components/Portfolio/Portfolio';
 
 export default function BlockRenderer({ blocks }) {
 
@@ -25,6 +26,20 @@ export default function BlockRenderer({ blocks }) {
                     />
                 );
 
+            case 'bloki-autorskie/portfolio':
+
+                return (
+                    <Portfolio
+                        key={index}
+                        postsPerPage={
+                            block.attrs?.postsPerPage ?? 6
+                        }
+                        category={
+                            block.attrs?.category ?? 'all'
+                        }
+                    />
+                );
+            
             default:
 
                 return (
