@@ -77,47 +77,51 @@ export default function BlogPostsClient({
         <section className={`${styles.blogPosts} ${isLoading ? styles.loading : ''}`}>
             <div className="container">
                 
-                <>
-                    {category === 'all' && (
-                        <>
-                            <button onClick={() => {setActiveCategory("all");setCurrentPage(1)}} className={`${styles.categoryButton} ${activeCategory === 'all' ? styles.active : ''}`} data-id="0" data-slug="all">Wszystkie</button>
-                            {
-                                allCategories.map(element => (
-                                    <button onClick={() => {setActiveCategory(element.slug);setCurrentPage(1)}} key={element.id} className={`${styles.categoryButton} ${activeCategory === element.slug ? styles.active : ''}`} data-id={element.id} data-slug={element.slug}>
-                                        {element.name}
-                                    </button>
-                                )) 
-                            }
-                        </>
-                    )}
+                {category === 'all' && (
+                    <>
+                        <button onClick={() => {setActiveCategory("all");setCurrentPage(1)}} className={`${styles.categoryButton} ${activeCategory === 'all' ? styles.active : ''}`} data-id="0" data-slug="all">Wszystkie</button>
+                        {
+                            allCategories.map(element => (
+                                <button onClick={() => {setActiveCategory(element.slug);setCurrentPage(1)}} key={element.id} className={`${styles.categoryButton} ${activeCategory === element.slug ? styles.active : ''}`} data-id={element.id} data-slug={element.slug}>
+                                    {element.name}
+                                </button>
+                            )) 
+                        }
+                    </>
+                )}
 
-                    <div className={styles.grid}>
+                <div className={styles.grid}>
 
-                        {posts.map((post) => (
+                    {posts.map((post) => (
 
-                            <article
-                                key={post.id}
-                                className={styles.post}
-                            >
+                        <article
+                            key={post.id}
+                            className={styles.post}
+                        >
 
-                                <h2>
-                                    <Link
-                                        href={`/blog/${post.slug}`}
-                                    >
-                                        {post.title}
-                                    </Link>
-                                </h2>
+                            <h2>
+                                <Link
+                                    href={`/blog/${post.slug}`}
+                                >
+                                    {post.title}
+                                </Link>
+                            </h2>
 
-                                <p>
-                                    {post.excerpt}
-                                </p>
+                            <p>
+                                {post.excerpt}
+                            </p>
 
-                            </article>
+                        </article>
 
-                        ))}
+                        // <article key={post.id} className={styles.post}>
 
-                    </div>
+                        // </article>
 
+                    ))}
+
+                </div>
+
+                {totalPages > 1 && (
                     <div className={styles.pagination}>
 
                         {Array.from(
@@ -145,7 +149,7 @@ export default function BlogPostsClient({
                             }
                         )}
                     </div>
-                </>
+                )}
                     
             </div>
         </section>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 // import Link from 'next/link';
+import Image from 'next/image';
 
 import styles from './Portfolio.module.scss';
 
@@ -74,11 +75,11 @@ export default function PortfolioClient({
     // console.log(allCategories)
 
     return (
-        <section className={`${styles.portfolio} ${isLoading ? styles.loading : ''}`}>
+        <section className={styles.portfolio}>
             <div className="container">
                 
                 {category === 'all' && (
-                    <>
+                    <div className={styles.categoryButtons}>
                         <button onClick={() => {setActiveCategory("all");setCurrentPage(1)}} className={`${styles.categoryButton} ${activeCategory === 'all' ? styles.active : ''}`} data-id="0" data-slug="all">Wszystkie</button>
                         {
                             allCategories.map(element => (
@@ -87,66 +88,65 @@ export default function PortfolioClient({
                                 </button>
                             )) 
                         }
-                    </>
+                    </div>
                 )}
 
-                <div className={styles.grid}>
+                <div className={`${styles.grid} ${isLoading ? styles.loading : ''}`}>
 
                     {posts.map((post) => (
 
-                        <article
-                            key={post.id}
-                            className={styles.post}
-                        >
-
-                            <h2>
-                                <a
-                                    href={post.projectUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {post.title}
-                                </a>
-                            </h2>
-
-                            <p>
-                                {post.excerpt}
-                            </p>
-
+                        <article key={post.id} className={styles.post}>
+                            <a href={post.projectUrl} target="_blank" rel="noopener noreferrer">
+                                <div className={styles.overlay}>
+                                    <h2>{post.title}</h2>
+                                </div>
+                                {post.image && (
+                                    <div className={styles.image}>
+                                        <Image
+                                            src={post.image.url}
+                                            width={post.image.width}
+                                            height={post.image.height}
+                                            alt={post.image.alt || post.title}
+                                        />
+                                    </div>
+                                )}
+                            </a>
                         </article>
 
                     ))}
 
                 </div>
 
-                <div className={styles.pagination}>
+                {totalPages > 1 && (
+                    <div className={styles.pagination}>
 
-                    {Array.from(
-                        { length: totalPages },
-                        (_, index) => {
+                        {Array.from(
+                            { length: totalPages },
+                            (_, index) => {
 
-                            const page = index + 1;
+                                const page = index + 1;
 
-                            return (
-                                <button
-                                    key={page}
-                                    type="button"
-                                    onClick={() => {
-                                        setCurrentPage(page);
-                                    }}
-                                    className={
-                                        currentPage === page
-                                            ? styles.active
-                                            : ''
-                                    }
-                                >
-                                    {page}
-                                </button>
-                            );
-                        }
-                    )}
-                </div>
-                    
+                                return (
+                                    <button
+                                        key={page}
+                                        type="button"
+                                        onClick={() => {
+                                            setCurrentPage(page);
+                                        }}
+                                        className={
+                                            currentPage === page
+                                                ? styles.active
+                                                : ''
+                                        }
+                                    >
+                                        {page}
+                                    </button>
+                                );
+                            }
+                        )}
+                    </div>
+                )}
+ 
             </div>
         </section>
     );
