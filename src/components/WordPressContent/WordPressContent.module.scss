@@ -1,0 +1,8 @@
+@use '../../styles/grid' as *;
+
+.block {
+    
+    > :global(.wp-block-group) {
+        @include Container;
+    }
+}

@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 
+import styles from './WordPressContent.module.scss';
+
 export default function WordPressContent({ html }) {
 	const router = useRouter();
 
@@ -55,7 +57,8 @@ export default function WordPressContent({ html }) {
 	}
 
 	return (
-		<div
+		<section
+			className={styles.block}
 			onClick={handleClick}
 			dangerouslySetInnerHTML={{
 				__html: html,
