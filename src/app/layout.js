@@ -22,7 +22,7 @@ export default function RootLayout({
             <head>
                 <link
 					rel="stylesheet"
-					href="http://localhost:8888/portfolio-2026-cms/wp-json/custom/v1/global-styles"
+					href="https://portfolio-2026-cms.ddev.site/wp-json/custom/v1/global-styles"
 				/>
             </head>
             <body>

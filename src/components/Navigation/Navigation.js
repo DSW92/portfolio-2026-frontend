@@ -3,7 +3,7 @@ import styles from './Navigation.module.scss';
 
 async function getMenu() {
     const res = await fetch(
-        'http://localhost:8888/portfolio-2026-cms/wp-json/custom/v1/menu',
+        'https://portfolio-2026-cms.ddev.site/wp-json/custom/v1/menu',
         { cache: 'no-store' }
     );
 

@@ -2,7 +2,7 @@ import BlockRenderer from '@/components/BlockRenderer/BlockRenderer';
 
 async function getPageBlocks() {
     const res = await fetch(
-        'http://localhost:8888/portfolio-2026-cms/wp-json/bloki-autorskie/v1/page-blocks/7',
+        'https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/page-blocks/7',
         {
             cache: 'no-store',
         }

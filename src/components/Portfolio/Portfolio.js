@@ -5,7 +5,7 @@ export default async function Portfolio({
     category = 'all'
 }) {
     const response = await fetch(
-        `http://localhost:8888/portfolio-2026-cms/wp-json/bloki-autorskie/v1/portfolio?page=1&per_page=${postsPerPage}&category=${category}`
+        `https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/portfolio?page=1&per_page=${postsPerPage}&category=${category}`
     );
 
     const data = await response.json();

@@ -3,7 +3,7 @@ import BlockRenderer from '@/components/BlockRenderer/BlockRenderer';
 
 async function getPage(slug) {
     const res = await fetch(
-        `http://localhost:8888/portfolio-2026-cms/wp-json/wp/v2/pages?slug=${slug}`,
+        `https://portfolio-2026-cms.ddev.site/wp-json/wp/v2/pages?slug=${slug}`,
         {
             next: {
                 revalidate: 60,
@@ -18,7 +18,7 @@ async function getPage(slug) {
 
 async function getPageBlocks(pageId) {
     const res = await fetch(
-        `http://localhost:8888/portfolio-2026-cms/wp-json/bloki-autorskie/v1/page-blocks/${pageId}`,
+        `https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/page-blocks/${pageId}`,
         {
             cache: 'no-store',
         }

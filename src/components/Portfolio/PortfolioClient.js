@@ -34,7 +34,7 @@ export default function PortfolioClient({
             try {
 
                 const response = await fetch(
-                    `http://localhost:8888/portfolio-2026-cms/wp-json/bloki-autorskie/v1/portfolio?page=${currentPage}&per_page=${postsPerPage}&category=${activeCategory}`
+                    `https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/portfolio?page=${currentPage}&per_page=${postsPerPage}&category=${activeCategory}`
                 );
 
                 if (!response.ok) {
