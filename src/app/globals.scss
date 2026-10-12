@@ -1,3 +1,4 @@
+@use '@/styles/variables' as *;
 @use '@/styles/grid';
 @use '@/styles/wordpress/blocks';
 
@@ -37,3 +38,46 @@ p {
 // .wp-block-group {
 //     @include grid.Container;    
 // }
+
+.about-me {
+
+	.container {
+		display: flex;
+		flex-direction: column;
+
+		@include Desktop {
+			flex-direction: initial;
+		}
+	}
+}
+
+.about-me__icon {
+	// padding: 20px;
+	padding: 12px;
+	background-color: #000;
+	width: 60px;
+	min-width: 60px;
+	height: 55px;
+	border-radius: 5px;
+
+	figure.wp-block-image {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			display: block;
+			height: 100%;
+			width: auto;
+		}
+	}
+}
+
+.about-me__column {
+
+	h2 {
+		letter-spacing: 2px;
+	}
+}

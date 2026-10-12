@@ -71,7 +71,10 @@
     }
 
     &:nth-child(even) {
-        transform: translateY(70px);
+        
+        @include TabletDesktop {
+            transform: translateY(70px);
+        }
     }
 }
 

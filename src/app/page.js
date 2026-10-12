@@ -21,8 +21,16 @@ export default async function HomePage() {
     const page = await getPageBlocks();
 
     return (
-        <BlockRenderer
-            blocks={page.blocks}
-        />
+        <>
+            <style
+                dangerouslySetInnerHTML={{
+                    __html: page.styles || '',
+                }}
+            />
+
+            <BlockRenderer
+                blocks={page.blocks}
+            />
+        </>
     );
 }
