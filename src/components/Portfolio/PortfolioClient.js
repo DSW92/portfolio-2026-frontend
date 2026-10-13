@@ -17,15 +17,31 @@ export default function PortfolioClient({
     const [isLoading, setIsLoading] = useState(false);
     const [activeCategory, setActiveCategory] = useState(category);
     const [allCategories, setAllCategories] = useState(initialData.categories);
+    const [animationKey, setAnimationKey] = useState(0);
 
-    const isFirstRender = useRef(true);
+    const previousParams = useRef({
+        currentPage: 1,
+        postsPerPage,
+        activeCategory: category,
+    });
 
     useEffect(() => {
 
-        if (isFirstRender.current) {
-            isFirstRender.current = false;
+        const params = {
+            currentPage,
+            postsPerPage,
+            activeCategory,
+        };
+
+        if (
+            params.currentPage === previousParams.current.currentPage &&
+            params.postsPerPage === previousParams.current.postsPerPage &&
+            params.activeCategory === previousParams.current.activeCategory
+        ) {
             return;
         }
+
+        previousParams.current = params;
 
         async function getPosts() {
 
@@ -46,6 +62,8 @@ export default function PortfolioClient({
                 const data = await response.json();
 
                 setPosts(data.posts);
+
+                setAnimationKey((prev) => prev + 1);
 
                 setTotalPages(
                     data.pagination.totalPages
@@ -91,7 +109,10 @@ export default function PortfolioClient({
                     </div>
                 )}
 
-                <div className={`${styles.grid} ${isLoading ? styles.loading : ''}`}>
+                <div
+                    key={animationKey}
+                    className={`${styles.grid} ${isLoading ? styles.loading : ''} ${animationKey > 0 ? styles.fadeIn : ''}`}
+                >
 
                     {posts.map((post) => (
 
