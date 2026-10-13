@@ -1,11 +1,65 @@
+@use '../../styles/variables' as *;
+@use '../../styles/grid' as *;
+
 .footer {
     border-top: 1px solid #494949;
+    padding: 30px 0;
+}
+
+.footerContainer {
+    @include Container;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+
+    @include Desktop {
+        flex-direction: row;
+    }
 }
 
 .footerInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    p {
+        color: #7d7d7d;
+        text-align: center;
+        line-height: 1.8;
+
+        a,
+        span {
+            color: #dfdfdf;
+        }
+    }
 }
 
 .footerIcons {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.footerIcon {
+
+    a {
+        position: relative;
+        display: block;
+        width: 25px;
+        height: 25px;
+        background-color: #9e9e9e;
+        border-radius: 5px;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            position: initial !important;
+            height: 100% !important;
+            width: auto !important;
+        }
+    }
 }
