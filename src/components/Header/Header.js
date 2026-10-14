@@ -1,10 +1,10 @@
-import Navigation from "../Navigation/Navigation";
+import Navigation from '../Navigation/Navigation';
 import styles from './Header.module.scss';
 
-export default function Header() {
+export default function Header({ locale }) {
     return (
         <header className={styles.header}>
-            <Navigation />
+            <Navigation locale={locale} />
         </header>
     );
 }

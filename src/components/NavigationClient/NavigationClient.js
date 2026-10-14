@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import styles from './NavigationClient.module.scss';
 import { useState, useEffect } from 'react';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
-export default function NavigationClient({ menu }) {
+export default function NavigationClient({ menu, locale }) {
     const [isActive, setIsActive] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
@@ -33,11 +34,23 @@ export default function NavigationClient({ menu }) {
         setIsVisible(true);
     }, [isActive]);
 
+    function getLocalizedUrl(url) {
+        const path = url.startsWith('/') ? url : `/${url}`;
+
+        if (locale === 'en') {
+            return path.startsWith('/en/') || path === '/en'
+                ? path
+                : `/en${path === '/' ? '' : path}`;
+        }
+
+        return path;
+    }
+
     return (
         <nav className={styles.nav}>
             <div className="container">
                 <div className={styles.siteLogo}>
-                    <Link href="/">DSW</Link>
+                    <Link href={locale === 'en' ? '/en' : '/'}>DSW</Link>
                 </div>
                 <ul 
                     className={`
@@ -48,8 +61,8 @@ export default function NavigationClient({ menu }) {
                 >
                     {menu.map((item) => (
                         <li key={item.url}>
-                            <Link 
-                                href={item.url}
+                            <Link
+                                href={getLocalizedUrl(item.url)}
                                 onClick={closeMenu}
                             >
                                 {item.title}
@@ -57,6 +70,7 @@ export default function NavigationClient({ menu }) {
                         </li>
                     ))}
                 </ul>
+                <LanguageSwitcher />
                 <div className={styles.hamburger}>
                     <input
                         className={styles.toggleChecker}
