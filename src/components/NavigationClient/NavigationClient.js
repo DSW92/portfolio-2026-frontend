@@ -63,9 +63,13 @@ export default function NavigationClient({ menu, locale }) {
 
         event.preventDefault();
 
-        const targetUrl = getLocalizedUrl(url);
+        const normalizePath = (path) =>
+            path.replace(/\/+$/, '') || '/';
 
-        if (window.location.pathname === targetUrl) {
+        const targetUrl = normalizePath(getLocalizedUrl(url));
+        const currentUrl = normalizePath(window.location.pathname);
+
+        if (currentUrl === targetUrl) {
             closeMenu();
             return;
         }
@@ -94,7 +98,7 @@ export default function NavigationClient({ menu, locale }) {
                         {menu.map((item) => (
                             <li key={item.url}>
                                 <Link
-                                    href={getLocalizedUrl(item.url)}
+                                    href={getLocalizedUrl(item.url).replace(/\/+$/, '') || '/'}
                                     onClick={(event) => handleNavigation(event, item.url)}
                                 >
                                     {item.title}
