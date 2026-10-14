@@ -90,8 +90,6 @@ export default function PortfolioClient({
 
     }, [currentPage, postsPerPage, activeCategory]);
 
-    // console.log(allCategories)
-
     return (
         <section className={styles.portfolio}>
             <div className="container">

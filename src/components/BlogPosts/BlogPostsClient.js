@@ -71,8 +71,6 @@ export default function BlogPostsClient({
 
     }, [currentPage, postsPerPage, activeCategory]);
 
-    // console.log(allCategories)
-
     return (
         <section className={`${styles.blogPosts} ${isLoading ? styles.loading : ''}`}>
             <div className="container">

@@ -2,11 +2,13 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { usePageTransition } from '../PageTransition/PageTransition';
 
 export default function LanguageSwitcher() {
     const pathname = usePathname();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const { showLoader, hideLoader } = usePageTransition();
 
     const locale = pathname.startsWith('/en/') || pathname === '/en'
         ? 'en'
@@ -19,12 +21,13 @@ export default function LanguageSwitcher() {
 
         const fallback = targetLocale === 'en' ? '/en' : '/';
 
+        setIsLoading(true);
+        await showLoader();
+
         if (pathname === '/' || pathname === '/en') {
             router.push(fallback);
             return;
         }
-
-        setIsLoading(true);
 
         try {
             const pageId = document

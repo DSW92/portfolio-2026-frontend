@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import '../globals.scss';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import PageTransition from '@/components/PageTransition/PageTransition';
 
 const commissioner = Commissioner({
     subsets: ['latin', 'latin-ext'],
@@ -34,9 +35,11 @@ export default async function RootLayout({ children, params }) {
                 />
             </head>
             <body>
-                <Header locale={locale} />
-                <main>{children}</main>
-                <Footer />
+                <PageTransition>
+                    <Header locale={locale} />
+                    <main id="page-content">{children}</main>
+                    <Footer />
+                </PageTransition>
             </body>
         </html>
     );
