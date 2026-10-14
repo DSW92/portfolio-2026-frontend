@@ -38,7 +38,7 @@ export default async function RootLayout({ children, params }) {
                 <PageTransition>
                     <Header locale={locale} />
                     <main id="page-content">{children}</main>
-                    <Footer />
+                    <Footer locale={locale} />
                 </PageTransition>
             </body>
         </html>

@@ -1,12 +1,16 @@
 import styles from './Footer.module.scss';
 import Image from 'next/image';
 
-export default function Footer() {
+export default function Footer({ locale }) {
+    const copyrightText = locale === 'en'
+    ? 'All rights reserved.'
+    : 'Wszystkie prawa zastrzeżone.';
+
     return (
         <footer className={styles.footer}>
             <div className={styles.footerContainer}>
                 <div className={styles.footerInfo}>
-                    <p>Dominik Wojtowicz &middot; <a href="mailto:dominik.s.wojtowicz@gmail.com">dominik.s.wojtowicz@gmail.com</a> &middot; ©<span>{new Date().getFullYear()}</span> Wszystkie prawa zastrzeżone.</p>
+                    <p>Dominik Wojtowicz &middot; <a href="mailto:dominik.s.wojtowicz@gmail.com">dominik.s.wojtowicz@gmail.com</a> &middot; ©<span>{new Date().getFullYear()}</span> {copyrightText}</p>
                 </div>
                 <div className={styles.footerIcons}>
                     <div className={`${styles.footerIcon} ${styles.linkedin}`}>
