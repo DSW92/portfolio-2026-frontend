@@ -27,7 +27,7 @@
 
 .post {
 
-    a {
+    > div {
         width: 100%;
         display: block;
         position: relative;
@@ -41,10 +41,11 @@
             z-index: 1;
             background-color: rgba($color: #000000, $alpha: 0.6);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
-            pointer-events: none;
+            // pointer-events: none;
             transition: opacity 0.5s;
 
             h2 {
@@ -52,6 +53,19 @@
                 font-weight: 500;
                 font-size: 32px;
                 text-align: center;
+                margin: 0 0 20px 0;
+            }
+
+            a {
+                margin: 0 0 15px 0;
+                color: #dfdfdf;
+                font-size: 22px;
+                text-decoration: underline;
+                transition: opacity 0.2s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
 

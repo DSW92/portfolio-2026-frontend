@@ -3,10 +3,9 @@
 import { useEffect, useState, useRef } from 'react';
 // import Link from 'next/link';
 import Image from 'next/image';
-
 import styles from './Portfolio.module.scss';
-
 import SectionNavigation from '../SectionNavigation.js/SectionNavigation';
+import { useParams } from 'next/navigation';
 
 export default function PortfolioClient({
     initialData,
@@ -21,6 +20,8 @@ export default function PortfolioClient({
     const [activeCategory, setActiveCategory] = useState(category);
     const [allCategories, setAllCategories] = useState(initialData.categories);
     const [animationKey, setAnimationKey] = useState(0);
+
+    const { locale } = useParams();
 
     const previousParams = useRef({
         currentPage: 1,
@@ -117,10 +118,46 @@ export default function PortfolioClient({
 
                     {posts.map((post) => (
 
+                        // <article key={post.id} className={styles.post}>
+                        //     <a href={post.projectUrl} target="_blank" rel="noopener noreferrer">
+                        //         <div className={styles.overlay}>
+                        //             <h2>{post.title}</h2>
+                        //         </div>
+                        //         {post.image && (
+                        //             <div className={styles.image}>
+                        //                 <Image
+                        //                     src={post.image.url}
+                        //                     width={post.image.width}
+                        //                     height={post.image.height}
+                        //                     alt={post.image.alt || post.title}
+                        //                 />
+                        //             </div>
+                        //         )}
+                        //     </a>
+                        // </article>
+
                         <article key={post.id} className={styles.post}>
-                            <a href={post.projectUrl} target="_blank" rel="noopener noreferrer">
+                            <div>
                                 <div className={styles.overlay}>
                                     <h2>{post.title}</h2>
+                                    {post.projectUrl && (
+                                        <a
+                                            href={post.projectUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {locale === 'pl' ? 'Strona live' : 'Live website'}
+                                        </a>
+                                    )}
+                                    {post.caseStudyUrl && (
+                                        <a
+                                            href={post.caseStudyUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Case study
+                                        </a>
+                                    )}
                                 </div>
                                 {post.image && (
                                     <div className={styles.image}>
@@ -132,7 +169,7 @@ export default function PortfolioClient({
                                         />
                                     </div>
                                 )}
-                            </a>
+                            </div>
                         </article>
 
                     ))}
