@@ -87,7 +87,7 @@ export default function NavigationClient({ menu, locale }) {
                 <div className={styles.siteLogo}>
                     <Link href={locale === 'en' ? '/en' : '/'}>DSW</Link>
                 </div>
-                <div>
+                <div className={styles.mainMenuWrapper}>
                     <ul 
                         className={`
                             ${styles.mainMenu}
@@ -106,7 +106,7 @@ export default function NavigationClient({ menu, locale }) {
                             </li>
                         ))}
                     </ul>
-                    <LanguageSwitcher />
+                    <LanguageSwitcher lang={locale} />
                 </div>
                 <div className={styles.hamburger}>
                     <input

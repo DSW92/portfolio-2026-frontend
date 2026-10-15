@@ -20,7 +20,15 @@
         color: #dfdfdf;
         display: block;
         font-size: 24px;
+        font-weight: 500;
     }
+}
+
+.mainMenuWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
 
 .mainMenu {

@@ -3,8 +3,9 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { usePageTransition } from '../PageTransition/PageTransition';
+import styles from './LanguageSwitcher.module.scss';
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({lang}) {
     const pathname = usePathname();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -58,8 +59,9 @@ export default function LanguageSwitcher() {
     }
 
     return (
-        <div>
+        <div className={styles.languageSwitcher}>
             <button
+                className={lang === 'pl' ? styles.active : ''}
                 type="button"
                 disabled={isLoading}
                 onClick={() => switchLanguage('pl')}
@@ -71,6 +73,7 @@ export default function LanguageSwitcher() {
             <span> / </span>
 
             <button
+                className={lang === 'en' ? styles.active : ''}
                 type="button"
                 disabled={isLoading}
                 onClick={() => switchLanguage('en')}
