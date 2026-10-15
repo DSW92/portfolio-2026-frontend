@@ -4,7 +4,9 @@ import { useRouter } from 'next/navigation';
 
 import styles from './WordPressContent.module.scss';
 
-export default function WordPressContent({ html }) {
+import SectionNavigation from '../SectionNavigation.js/SectionNavigation';
+
+export default function WordPressContent({ html, navigation }) {
 	const router = useRouter();
 
 	function handleClick(event) {
@@ -60,9 +62,16 @@ export default function WordPressContent({ html }) {
 		<section
 			className={styles.block}
 			onClick={handleClick}
-			dangerouslySetInnerHTML={{
-				__html: html,
-			}}
-		/>
+		>
+			<div
+				dangerouslySetInnerHTML={{
+					__html: html,
+				}}
+			/>
+
+			{navigation && (
+				<SectionNavigation {...navigation} />
+			)}
+		</section>
 	);
 }

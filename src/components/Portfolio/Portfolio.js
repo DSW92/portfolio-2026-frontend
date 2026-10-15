@@ -2,7 +2,8 @@ import PortfolioClient from './PortfolioClient';
 
 export default async function Portfolio({
     postsPerPage = 6,
-    category = 'all'
+    category = 'all',
+    navigation = null
 }) {
     const response = await fetch(
         `https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/portfolio?page=1&per_page=${postsPerPage}&category=${category}`
@@ -15,6 +16,7 @@ export default async function Portfolio({
             initialData={data}
             postsPerPage={postsPerPage}
             category={category}
+            navigation={navigation}
         />
     );
 }

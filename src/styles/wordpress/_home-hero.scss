@@ -2,6 +2,11 @@
 @use '../grid' as *;
 
 .wp-block-bloki-autorskie-home-hero {
+    padding: 80px 0 40px 0 !important;
+
+    @include Desktop {
+        padding: 80px 0 !important;
+    }
 
     .container {
 

@@ -6,10 +6,13 @@ import Image from 'next/image';
 
 import styles from './Portfolio.module.scss';
 
+import SectionNavigation from '../SectionNavigation.js/SectionNavigation';
+
 export default function PortfolioClient({
     initialData,
     postsPerPage = 6,
-    category = 'all'
+    category = 'all',
+    navigation = null
 }) {
     const [posts, setPosts] = useState(initialData.posts);
     const [currentPage, setCurrentPage] = useState(1);
@@ -167,6 +170,11 @@ export default function PortfolioClient({
                 )}
  
             </div>
+
+            {navigation && (
+                <SectionNavigation {...navigation} />
+            )}
+            
         </section>
     );
 }

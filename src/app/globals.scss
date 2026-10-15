@@ -1,5 +1,5 @@
 @use '@/styles/variables' as *;
-@use '@/styles/grid';
+@use '@/styles/grid' as *;
 @use '@/styles/wordpress/blocks';
 
 * {
@@ -8,11 +8,21 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  overflow-x: clip;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
 body {
     // font-family: Arial, sans-serif;
     font-family: var(--font-commissioner), sans-serif;
     background-color: #202020;
-	overflow-x: hidden;
+	// overflow-x: hidden;
 }
 
 ul {
@@ -41,10 +51,16 @@ p {
 // }
 
 .about-me {
+	padding: 40px 0 40px !important;
+
+	@include Desktop {
+		padding: 80px 0 !important;
+	}
 
 	.container {
 		display: flex;
 		flex-direction: column;
+		// justify-content: center;
 
 		@include Desktop {
 			flex-direction: initial;
@@ -84,8 +100,17 @@ p {
 }
 
 .wp-block-group.contact {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	padding: 40px 0 80px 0 !important;
+
+	@include Desktop {
+		padding: 80px 0 140px 0 !important;
+	}
+
+	> .wp-block-group {
+		@include Container;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }

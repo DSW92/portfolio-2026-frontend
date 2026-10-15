@@ -56,14 +56,20 @@ export default async function Page({ params }) {
     }
 
     return (
-        <>
-            <div
-                id="current-page-data"
-                data-page-id={page.id}
-                hidden
-            />
+    <>
+        <style dangerouslySetInnerHTML={{ __html: page.styles || '' }} />
 
-            <BlockRenderer blocks={page.blocks} />
-        </>
-    );
+        <div
+            id="current-page-data"
+            data-page-id={page.id}
+            hidden
+        />
+
+        <BlockRenderer
+            blocks={page.blocks}
+            isHome
+            locale={locale}
+        />
+    </>
+);
 }
