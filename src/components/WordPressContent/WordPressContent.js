@@ -1,9 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-
 import styles from './WordPressContent.module.scss';
-
 import SectionNavigation from '../SectionNavigation.js/SectionNavigation';
 
 export default function WordPressContent({ html, navigation }) {

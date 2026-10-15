@@ -1,26 +1,92 @@
+@use '../../styles/variables' as *;
+@use '../../styles/grid' as *;
+
 .navigation {
+    @include Container;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     width: 100%;
 }
 
 .scrollButton {
-    display: inline-flex;
+    background: none;
+    border: none;
+    outline: none;
+    color: #7d7d7d;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    background: #222;
-    color: #fff;
-    border: none;
     cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    gap: 10px;
+    text-align: start;
+
+    svg {
+        width: auto;
+        height: 25px;
+        display: inline-block;
+        transform-origin: center;
+        animation: arrowPulse 1.6s ease-in-out infinite;
+        will-change: transform, opacity;
+        --move-x: 0px;
+        --move-y: 6px;
+
+        @include Desktop {
+            height: 40px;
+        }
+    }
 }
 
 .pageButton {
-    display: inline-flex;
+    background: none;
+    border: none;
+    outline: none;
+    color: #7d7d7d;
+    display: flex;
     align-items: center;
-    padding: 15px;
-    background: #222;
-    color: #fff;
-    text-decoration: none;
+    justify-content: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    gap: 10px;
+    text-align: end;
+
+    svg {
+        width: auto;
+        height: 25px;
+        display: inline-block;
+        transform-origin: center;
+        animation: arrowPulse 1.6s ease-in-out infinite;
+        will-change: transform, opacity;
+        --move-x: -6px;
+        --move-y: 0px;
+
+        @include Desktop {
+            height: 40px;
+        }
+    }
+}
+
+@keyframes arrowPulse {
+    0%, 100% {
+        transform: translate(0, 0);
+        // opacity: 1;
+    }
+
+    50% {
+        transform: translate(var(--move-x), var(--move-y));
+        // opacity: 0.55;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .svg {
+        animation: none;
+    }
 }

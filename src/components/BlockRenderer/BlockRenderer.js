@@ -4,15 +4,15 @@ import Portfolio from '@/components/Portfolio/Portfolio';
 
 const homeNavigation = {
     pl: [
-        { scroll: true },
-        { scroll: true, href: '/o-mnie', label: 'Więcej o mnie' },
-        { scroll: true, href: '/projekty', label: 'Zobacz projekty' },
+        { scroll: true, scrollTo: 'O mnie' },
+        { scroll: true, scrollTo: 'Wyróżnione projekty', href: '/o-mnie', label: 'Więcej o mnie' },
+        { scroll: true, scrollTo: 'Kontakt', href: '/projekty', label: 'Wszystkie projekty' },
         { scroll: false, href: '/kontakt', label: 'Kontakt' },
     ],
     en: [
-        { scroll: true },
-        { scroll: true, href: '/en/about', label: 'More about me' },
-        { scroll: true, href: '/en/projects', label: 'View projects' },
+        { scroll: true, scrollTo: 'About me' },
+        { scroll: true, scrollTo: 'Featured work', href: '/en/about', label: 'More about me' },
+        { scroll: true, scrollTo: 'Contact', href: '/en/projects', label: 'View projects' },
         { scroll: false, href: '/en/contact', label: 'Contact' },
     ],
 };

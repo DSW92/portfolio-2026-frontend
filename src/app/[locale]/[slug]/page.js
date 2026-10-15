@@ -65,11 +65,7 @@ export default async function Page({ params }) {
             hidden
         />
 
-        <BlockRenderer
-            blocks={page.blocks}
-            isHome
-            locale={locale}
-        />
+        <BlockRenderer blocks={page.blocks} locale={locale} />
     </>
 );
 }

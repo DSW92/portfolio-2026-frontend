@@ -1,8 +1,12 @@
 @use '../../styles/grid' as *;
 
-// .block {
-    
-//     > :global(.wp-block-group) {
-//         @include Container;
-//     }
-// }
+.block {
+    position: relative;
+
+    nav {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
