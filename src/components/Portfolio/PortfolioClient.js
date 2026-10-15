@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './Portfolio.module.scss';
 import SectionNavigation from '../SectionNavigation.js/SectionNavigation';
 import { useParams } from 'next/navigation';
+import { h1 } from 'framer-motion/client';
 
 export default function PortfolioClient({
     initialData,
@@ -99,16 +100,19 @@ export default function PortfolioClient({
             <div className="container">
                 
                 {category === 'all' && (
-                    <div className={styles.categoryButtons}>
-                        <button onClick={() => {setActiveCategory("all");setCurrentPage(1)}} className={`${styles.categoryButton} ${activeCategory === 'all' ? styles.active : ''}`} data-id="0" data-slug="all">Wszystkie</button>
-                        {
-                            allCategories.map(element => (
-                                <button onClick={() => {setActiveCategory(element.slug);setCurrentPage(1)}} key={element.id} className={`${styles.categoryButton} ${activeCategory === element.slug ? styles.active : ''}`} data-id={element.id} data-slug={element.slug}>
-                                    {element.name}
-                                </button>
-                            )) 
-                        }
-                    </div>
+                    <>
+                        <h1>{locale === 'en' ? 'Projects' : 'Projekty'}</h1>
+                        <div className={styles.categoryButtons}>
+                            <button onClick={() => {setActiveCategory("all");setCurrentPage(1)}} className={`${styles.categoryButton} ${activeCategory === 'all' ? styles.active : ''}`} data-id="0" data-slug="all">Wszystkie</button>
+                            {
+                                allCategories.map(element => (
+                                    <button onClick={() => {setActiveCategory(element.slug);setCurrentPage(1)}} key={element.id} className={`${styles.categoryButton} ${activeCategory === element.slug ? styles.active : ''}`} data-id={element.id} data-slug={element.slug}>
+                                        {element.name}
+                                    </button>
+                                )) 
+                            }
+                        </div>
+                    </>
                 )}
 
                 <div
