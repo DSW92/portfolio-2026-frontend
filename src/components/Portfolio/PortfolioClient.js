@@ -170,6 +170,7 @@ export default function PortfolioClient({
                                             width={post.image.width}
                                             height={post.image.height}
                                             alt={post.image.alt || post.title}
+                                            loading="eager"
                                         />
                                     </div>
                                 )}

@@ -24,7 +24,7 @@ export default async function HomePage({ params }) {
     return (
         <>
             <style dangerouslySetInnerHTML={{ __html: page.styles || '' }} />
-            <BlockRenderer blocks={page.blocks} isHome />
+            <BlockRenderer blocks={page.blocks} locale={locale} isHome />
         </>
     );
 }

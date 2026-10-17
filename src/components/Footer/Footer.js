@@ -19,6 +19,7 @@ export default function Footer({ locale }) {
                                 src="/icons/linkedin.svg"
                                 alt="Logo"
                                 fill
+                                sizes="20px"
                             />
                         </a>
                     </div>
@@ -28,6 +29,7 @@ export default function Footer({ locale }) {
                                 src="/icons/useme.webp"
                                 alt="Logo"
                                 fill
+                                sizes="20px"
                             />
                         </a>
                     </div>
@@ -37,6 +39,7 @@ export default function Footer({ locale }) {
                                 src="/icons/github.svg"
                                 alt="Logo"
                                 fill
+                                sizes="20px"
                             />
                         </a>
                     </div>

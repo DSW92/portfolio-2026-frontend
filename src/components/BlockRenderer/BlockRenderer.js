@@ -6,18 +6,20 @@ const homeNavigation = {
     pl: [
         { scroll: true, scrollTo: 'O mnie' },
         { scroll: true, scrollTo: 'Wyróżnione projekty', href: '/o-mnie', label: 'Więcej o mnie' },
-        { scroll: true, scrollTo: 'Kontakt', href: '/projekty', label: 'Wszystkie projekty' },
-        { scroll: false, href: '/kontakt', label: 'Kontakt' },
+        { scroll: false, scrollTo: 'Kontakt', href: '/projekty', label: 'Wszystkie projekty' },
+        // { scroll: false, href: '/kontakt', label: 'Kontakt' },
     ],
     en: [
         { scroll: true, scrollTo: 'About me' },
         { scroll: true, scrollTo: 'Featured work', href: '/en/about', label: 'More about me' },
-        { scroll: true, scrollTo: 'Contact', href: '/en/projects', label: 'View projects' },
-        { scroll: false, href: '/en/contact', label: 'Contact' },
+        { scroll: false, scrollTo: 'Contact', href: '/en/projects', label: 'All projects' },
+        // { scroll: false, href: '/en/contact', label: 'Contact' },
     ],
 };
 
 export default function BlockRenderer({ blocks, isHome = false, locale = 'pl' }) {
+
+    console.log('Aktualny język:', locale);
 
     if (!blocks) {
         return null;
