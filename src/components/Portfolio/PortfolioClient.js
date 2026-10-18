@@ -103,7 +103,7 @@ export default function PortfolioClient({
                     <>
                         <h1>{locale === 'en' ? 'Projects' : 'Projekty'}</h1>
                         <div className={styles.categoryButtons}>
-                            <button onClick={() => {setActiveCategory("all");setCurrentPage(1)}} className={`${styles.categoryButton} ${activeCategory === 'all' ? styles.active : ''}`} data-id="0" data-slug="all">Wszystkie</button>
+                            <button onClick={() => {setActiveCategory("all");setCurrentPage(1)}} className={`${styles.categoryButton} ${activeCategory === 'all' ? styles.active : ''}`} data-id="0" data-slug="all">{locale === 'en' ? 'All' : 'Wszystkie'}</button>
                             {
                                 allCategories.map(element => (
                                     <button onClick={() => {setActiveCategory(element.slug);setCurrentPage(1)}} key={element.id} className={`${styles.categoryButton} ${activeCategory === element.slug ? styles.active : ''}`} data-id={element.id} data-slug={element.slug}>

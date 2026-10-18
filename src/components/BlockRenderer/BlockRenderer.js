@@ -11,7 +11,7 @@ const homeNavigation = {
     ],
     en: [
         { scroll: true, scrollTo: 'About me' },
-        { scroll: true, scrollTo: 'Featured work', href: '/en/about', label: 'More about me' },
+        { scroll: true, scrollTo: 'Featured work', href: '/en/about-me', label: 'More about me' },
         { scroll: false, scrollTo: 'Contact', href: '/en/projects', label: 'All projects' },
         // { scroll: false, href: '/en/contact', label: 'Contact' },
     ],
