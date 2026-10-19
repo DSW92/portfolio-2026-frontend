@@ -5,7 +5,7 @@ export default async function BlogPosts({
     category = 'all'
 }) {
     const response = await fetch(
-        `https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/blog-posts?page=1&per_page=${postsPerPage}&category=${category}`
+        `https://cms.dominikwojtowicz.pl/wp-json/bloki-autorskie/v1/blog-posts?page=1&per_page=${postsPerPage}&category=${category}`
     );
 
     const data = await response.json();

@@ -41,7 +41,7 @@ export default function LanguageSwitcher({lang}) {
             }
 
             const response = await fetch(
-                `https://portfolio-2026-cms.ddev.site/wp-json/custom/v1/page-translations/${pageId}`
+                `https://cms.dominikwojtowicz.pl/wp-json/custom/v1/page-translations/${pageId}`
             );
 
             if (!response.ok) {

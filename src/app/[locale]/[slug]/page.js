@@ -2,7 +2,7 @@
 import { notFound } from 'next/navigation';
 import BlockRenderer from '@/components/BlockRenderer/BlockRenderer';
 
-const API_URL = 'https://portfolio-2026-cms.ddev.site/wp-json';
+const API_URL = 'https://cms.dominikwojtowicz.pl/wp-json';
 
 async function getPage(slug, locale) {
     const res = await fetch(

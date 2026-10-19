@@ -3,7 +3,7 @@ import WordPressContent from '@/components/WordPressContent/WordPressContent';
 
 async function getPost(slug) {
     const res = await fetch(
-        `https://portfolio-2026-cms.ddev.site/wp-json/wp/v2/posts?slug=${slug}`,
+        `https://cms.dominikwojtowicz.pl/wp-json/wp/v2/posts?slug=${slug}`,
         {
             cache: 'no-store',
         }

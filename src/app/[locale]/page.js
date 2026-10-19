@@ -2,7 +2,7 @@ import BlockRenderer from '@/components/BlockRenderer/BlockRenderer';
 
 async function getPageBlocks(locale) {
     const res = await fetch(
-        `https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/page-blocks/7?lang=${locale}`,
+        `https://cms.dominikwojtowicz.pl/wp-json/bloki-autorskie/v1/page-blocks/7?lang=${locale}`,
         {
             cache: 'no-store',
         }

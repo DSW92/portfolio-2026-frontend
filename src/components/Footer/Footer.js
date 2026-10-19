@@ -10,7 +10,7 @@ export default function Footer({ locale }) {
         <footer className={styles.footer}>
             <div className={styles.footerContainer}>
                 <div className={styles.footerInfo}>
-                    <p>Dominik Wojtowicz &middot; <a href="mailto:dominik.s.wojtowicz@gmail.com">dominik.s.wojtowicz@gmail.com</a> &middot; ©<span>{new Date().getFullYear()}</span> {copyrightText}</p>
+                    <p>Dominik Wojtowicz &middot; <a href="mailto:kontakt@dominikwojtowicz.pl">kontakt@dominikwojtowicz.pl</a> &middot; ©<span>{new Date().getFullYear()}</span> {copyrightText}</p>
                 </div>
                 <div className={styles.footerIcons}>
                     <div className={`${styles.footerIcon} ${styles.linkedin}`}>

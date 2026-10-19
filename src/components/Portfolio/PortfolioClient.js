@@ -55,7 +55,7 @@ export default function PortfolioClient({
             try {
 
                 const response = await fetch(
-                    `https://portfolio-2026-cms.ddev.site/wp-json/bloki-autorskie/v1/portfolio?page=${currentPage}&per_page=${postsPerPage}&category=${activeCategory}`
+                    `https://cms.dominikwojtowicz.pl/wp-json/bloki-autorskie/v1/portfolio?page=${currentPage}&per_page=${postsPerPage}&category=${activeCategory}`
                 );
 
                 if (!response.ok) {

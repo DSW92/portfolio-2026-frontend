@@ -31,7 +31,7 @@ export default async function RootLayout({ children, params }) {
             <head>
                 <link
                     rel="stylesheet"
-                    href="https://portfolio-2026-cms.ddev.site/wp-json/custom/v1/global-styles"
+                    href="https://cms.dominikwojtowicz.pl/wp-json/custom/v1/global-styles"
                 />
             </head>
             <body>

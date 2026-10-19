@@ -2,7 +2,7 @@ import NavigationClient from '../NavigationClient/NavigationClient';
 
 async function getMenu(locale) {
     const res = await fetch(
-        `https://portfolio-2026-cms.ddev.site/wp-json/custom/v1/menu?lang=${locale}`,
+        `https://cms.dominikwojtowicz.pl/wp-json/custom/v1/menu?lang=${locale}`,
         { cache: 'no-store' }
     );
 
